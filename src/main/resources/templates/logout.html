@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout</title>
+</head>
+<body>
+    <h1>Logout</h1>
+    <div th:if="${param.error}"><!--error발생시 error메세지 출력설정-->
+        Logout is fail.
+    </div>
+    <!--logout으로 post 요청보내면 logout filter가 로그아웃처리해줌-->
+    <form action="/logout" method="post" th:action="@{/logout}">
+        <p><input type="submit" value="Logout"></p>
+    </form>
+</body>
+</html>

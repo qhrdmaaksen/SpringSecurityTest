@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<!--thymeleaf 사용해서 form 구현,thymeleaf에서 url을 다룰때 사용할 수 있는 th:action 사용,
+        액션값을 th:action @{/signup}(url전용 keyword)값으로 바꿔줌, th:object account오브젝트를 참조하겠다
+        csrf 토큰은 form 생성시 jsp나 thymeleaf나 자동 생성된다 . -->
+    <h1>Login</h1>
+    <div th:if="${param.error}"><!--error발생시 error메세지 출력설정-->
+        Invalid username or password.
+    </div>
+    <form action="/login" method="post" th:action="@{/login}">
+        <p>Username: <input type="text" name="username"></p>
+        <p>Password: <input type="password" name="password"></p>
+        <p>Remember: <input type="checkbox" name="remember-me"></p>
+        <p><input type="submit" value="Login"></p>
+    </form>
+</body>
+</html>

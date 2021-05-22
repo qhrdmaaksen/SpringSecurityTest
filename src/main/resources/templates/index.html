@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--namespace thymeleaf  추가 및 extras 추가-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <h1 th:text="${message}">Hello</h1>
+    <!--인증 되어있는 상태라면 인증된 사용자의 이름을 authorization 에서 참조할수있다.
+        로그아웃 페이지로 가는 경로 명시, 인증된 사용자가 없는 경우 login page 이동 명시-->
+<!--    <div th:if="${#authorization.expr('isAuthenticated()')}">-->
+    <div sec:authorize-expr="isAuthenticated()">
+    <!--<div sec:authorize-expr="hasRole()"> hasrole 설정으로 특정 계정이볼수있게지정가능-->
+<!--        <h2 th:text="${#authentication.name}">Name</h2>-->
+        <h2 sec:authentication="name">Name</h2>
+        <!--<h2 sec:authentication="hasRole('ADMIN')">Name</h2> 역할지정으로 정보를 보여줄수있따.-->
+        <a href="/logout" th:href="@{/logout}">Logout</a>
+    </div>
+<!--    <div th:unless="${#authorization.expr('isAuthenticated()')}">-->
+    <div sec:authorize-expr="!isAuthenticated()">
+        <a href="/login" th:href="@{/login}">Login</a>
+    </div>
+</body>
+</html>
