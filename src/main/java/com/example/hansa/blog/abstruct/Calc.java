@@ -1,4 +1,4 @@
-package com.example.securitytest.hansa.abstruct;
+package com.example.hansa.blog.abstruct;
 //추상 클래스는 미완성이므로 오브젝트를 생성시킬수 없고 ,
 //서브 클래스로 상속시킨 후 구체적인 메소드를 구현해서 사용함
 abstract class Calc {

@@ -1,4 +1,4 @@
-package com.example.securitytest.hansa.abstruct;
+package com.example.hansa.blog.abstruct;
 
 public class Calculation {//계산해주는 메인 클래스
     public static void main(String[] args) {

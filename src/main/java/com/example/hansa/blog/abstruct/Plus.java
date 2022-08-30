@@ -1,4 +1,4 @@
-package com.example.securitytest.hansa.abstruct;
+package com.example.hansa.blog.abstruct;
 
 public class Plus extends Calc{
     @Override//Clac 추상 클래스의 추상메소드 answer 오버라이딩
